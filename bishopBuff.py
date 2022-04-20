@@ -29,7 +29,7 @@ class BishopBuff(user.User):
         print(self.userIndex.getX())
         if (isUse):
             time.sleep(0.5)
-            self.moveX(125)
+            self.moveX(105)
         if (self.direction == 1):
             self.direction = 2
             # self.move("Left", 50)
