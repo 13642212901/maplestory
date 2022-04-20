@@ -30,16 +30,32 @@ class Kanna(user.User):
     def handle(self):
         self.lock.acquire()
         self.useSkill()
-        isUse = self.useKishin()
-        if (isUse):
-            if (self.direction == 1):
-                self.direction = 2
-                self.move("Left", 50)
-            else:
-                self.direction = 1
-                self.move("Right", 50)
+        if (not self.kishinSkill.ifCD()):
+            self.go()
+            isUse = self.useKishin()
+            if (isUse):
+                if (self.direction == 1):
+                    self.direction = 2
+                    self.move("Left", 50)
+                else:
+                    self.direction = 1
+                    self.move("Right", 50)
+            time.sleep(0.5)
+            self.back()
         # time.sleep(0.2)
         self.lock.release()
+    def go(self):
+        self.flashD("Up")
+        time.sleep(0.3)
+        # self.flashD("Down")
+        # time.sleep(0.3)
+    def back(self):
+        self.flashD("Down")
+        time.sleep(0.3)
+        # self.flashD("Up")
+        # time.sleep(0.3)
+
+
     def move(self, d, delay):
         self.action.send(client.Key(d + "|" + str(delay)))
         time.sleep(delay * 1.2 / 1000)

@@ -33,7 +33,23 @@ class Skill:
         else:
             self.cd = True
         return self.cd
+class MoveSkill(Skill):
+    def use(self):
+        if (not self.ifCD()):
 
+            time.sleep(0.2)
+            delay = 80
+            d = "Right"
+            self.action.send(client.Key(d + "|" + str(delay)))
+            time.sleep(0.5)
+            d = "Left"
+            self.action.send(client.Key(d + "|" + str(delay)))
+            time.sleep(0.5)
+            self.useTime = int(time.time())
+            self.cd = True
+            time.sleep(self.delay / 1000 + 0.2)
+            return True
+        return False
 class ChargingSkill(Skill):
     chargingTimes = 2
     lock = threading.Lock()

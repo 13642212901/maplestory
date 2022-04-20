@@ -3,8 +3,6 @@ import random
 import threading
 import abc
 import time
-from ctypes import *
-from pykeyboard import PyKeyboard
 
 threadLock = threading.Lock()
 runeLock = threading.Lock()
