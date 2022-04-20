@@ -12,7 +12,7 @@ class slayer(user.User):
     attTime = 7
     flashTime = 0
     jumpTime = 2
-    returnTime = 7
+    returnTime = 5
     isJumpAtt = True
     weaponSkill = []
     burningWeaponSkill = {}
