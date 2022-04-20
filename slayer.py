@@ -22,7 +22,7 @@ class slayer(user.User):
     groupAttTime = 0
     def att(self):
         self.getAction().send(client.Key("aaaAtt"))
-        time.sleep(1)
+        time.sleep(1.4)
     def fly(self, d):
         self.getAction().send(client.Key("fly" + d))
         time.sleep(0.8)

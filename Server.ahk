@@ -257,6 +257,8 @@ aaaAtt(){
     sleep, 220
     Send, {b}
     sleep, 240
+    Send, {b}
+    sleep, 400
 }
 
 flyRight(){
