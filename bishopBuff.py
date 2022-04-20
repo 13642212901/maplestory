@@ -28,10 +28,10 @@ class BishopBuff(user.User):
         self.useSkill()
         if (self.direction == 1):
             self.direction = 2
-            self.move("Left", 50)
+            # self.move("Left", 50)
         else:
             self.direction = 1
-            self.move("Right", 50)
+            # self.move("Right", 50)
         time.sleep(0.5)
         # time.sleep(0.2)
         self.lock.release()
