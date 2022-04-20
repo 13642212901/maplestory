@@ -37,11 +37,11 @@ class MoveSkill(Skill):
     def use(self):
         if (not self.ifCD()):
 
-            time.sleep(0.2)
+            time.sleep(0.5)
             delay = 80
             d = "Right"
             self.action.send(client.Key(d + "|" + str(delay)))
-            time.sleep(0.5)
+            time.sleep(1)
             d = "Left"
             self.action.send(client.Key(d + "|" + str(delay)))
             time.sleep(0.5)
