@@ -48,11 +48,11 @@ class Kanna(user.User):
         # time.sleep(0.2)
         self.lock.release()
     def go(self):
-        self.flashD("Up")
+        # self.flashD("Up")
         # self.flashD("Down")
         time.sleep(0.3)
     def back(self):
-        self.flashD("Down")
+        # self.flashD("Down")
         # self.flashD("Up")
         time.sleep(0.3)
 
