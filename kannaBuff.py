@@ -30,6 +30,7 @@ class Kanna(user.User):
     def handle(self):
         self.lock.acquire()
         self.useSkill()
+        print(self.userIndex.getX())
         if (not self.kishinSkill.ifCD()):
             self.go()
             isUse = self.useKishin()
