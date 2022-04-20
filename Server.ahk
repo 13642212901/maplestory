@@ -19,6 +19,15 @@ OnTCPAccept(){
     } else if(command = "iliumnAtt") {
       iliumnAtt()
       sleep, %delay%
+    }  else if(command = "aaaAtt") {
+      aaaAtt()
+      sleep, %delay%
+    }  else if(command = "flyRight") {
+      flyRight()
+      sleep, %delay%
+    }  else if(command = "flyLeft") {
+      flyLeft()
+      sleep, %delay%
     } else if (command = "kannaAtt") {
       kannaAtt()
       sleep, %delay%
@@ -241,4 +250,36 @@ skillMove(key, dir){
   sleep, 100
   Send, {%dir% Up}
   sleep, 350
+}
+
+aaaAtt(){
+    Send, {b}
+    sleep, 220
+    Send, {b}
+    sleep, 240
+}
+
+flyRight(){
+    Send, {c}
+    sleep, 100
+    Send, {c Down}
+    sleep, 50
+    Send, {Right Down}
+    sleep, 500
+    Send, {Right Up}
+    sleep, 50
+    Send, {c Up}
+
+}
+flyLeft(){
+    Send, {c}
+    sleep, 100
+    Send, {c Down}
+    sleep, 50
+    Send, {Left Down}
+    sleep, 500
+    Send, {Left Up}
+    sleep, 50
+    Send, {c Up}
+
 }
