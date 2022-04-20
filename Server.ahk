@@ -182,6 +182,13 @@ jumpAtt(){
   Send, {c}
   Send, {Alt}
 }
+v::
+jumpAtt()
+return
+
+b::
+noJumpAtt()
+return
 
 noJumpAtt(){
   Send, {a Down}
@@ -258,7 +265,9 @@ aaaAtt(){
     Send, {b}
     sleep, 240
     Send, {b}
-    sleep, 400
+    sleep, 240
+    Send, {b}
+    sleep, 240
 }
 
 flyRight(){

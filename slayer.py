@@ -19,10 +19,10 @@ class slayer(user.User):
     weaponTime = 0
     burningTime = 999999999999
     hasWeapon = False
-    groupAttTime = 0
+    groupAttTime = 1
     def att(self):
         self.getAction().send(client.Key("aaaAtt"))
-        time.sleep(1.4)
+        time.sleep(1.7)
     def fly(self, d):
         self.getAction().send(client.Key("fly" + d))
         time.sleep(0.8)
@@ -61,7 +61,7 @@ class slayer(user.User):
             self.fly("Right")
         print(self.groupAttTime)
         if (self.returnTime == self.groupAttTime):
-            self.groupAttTime = 0
+            self.groupAttTime = 1
             if (self.direction == 1):
                 self.direction = 2
             else:
