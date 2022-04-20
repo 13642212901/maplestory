@@ -43,6 +43,7 @@ class Kanna(user.User):
                     self.move("Right", 50)
             time.sleep(0.5)
             self.back()
+            self.moveX(135)
         # time.sleep(0.2)
         self.lock.release()
     def go(self):
