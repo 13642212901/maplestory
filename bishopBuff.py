@@ -27,9 +27,10 @@ class BishopBuff(user.User):
         self.lock.acquire()
         isUse = self.useSkill()
         print(self.userIndex.getX())
-        if (isUse):
-            time.sleep(0.5)
-            self.moveX(42)
+        while (isUse):
+            time.sleep(0.2)
+            isUse = self.useSkill()
+        self.moveX(42)
         if (self.direction == 1):
             self.direction = 2
             # self.move("Left", 50)
