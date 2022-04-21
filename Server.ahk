@@ -182,13 +182,7 @@ jumpAtt(){
   Send, {c}
   Send, {Alt}
 }
-v::
-jumpAtt()
-return
 
-b::
-noJumpAtt()
-return
 
 noJumpAtt(){
   Send, {a Down}

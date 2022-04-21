@@ -2,6 +2,7 @@ import thread
 import units
 import units as u
 import cv2
+import client
 
 DANGER_TPL = "danger.jpg"
 
@@ -15,3 +16,11 @@ class Danger(thread.ThreadController):
             print("danger:", res)
         if (res[0]):
             self.getAction().sendArray(["left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right"])
+
+class Mana(thread.ThreadController):
+    def handle(self):
+        img = self.getScreen().get()
+        point = img[740, 460]
+        # [163, 160, 161]
+        if (point[0] > 158 and point[0] < 165 and point[1] > 158 and point[1] < 165 and point[2] > 158 and point[2] < 165):
+            self.getAction().send(client.Key("4"))

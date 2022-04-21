@@ -6,30 +6,29 @@ import client
 import time
 import units
 
-class slayer(user.User):
+class Adele(user.User):
     type = 1
     attKey = "w"
     attTime = 7
     flashTime = 0
     jumpTime = 2
-    returnTime = 4
+    returnTime = 11
     isJumpAtt = True
     weaponSkill = []
     burningWeaponSkill = {}
     weaponTime = 0
     burningTime = 999999999999
     hasWeapon = False
-    groupAttTime = 1
     def att(self):
-        self.getAction().send(client.Key("aaaAtt"))
-        time.sleep(1.7)
-    def fly(self, d):
-        self.getAction().send(client.Key("fly" + d))
-        time.sleep(0.8)
-
+        isUse = False
+        if (not self.groupAttTime == self.returnTime):
+            isUse = self.useSkill()
+        if (not isUse):
+            self.getAction().send(client.Key(self.attKey, random.randint(720, 750)))
+            time.sleep(units.randomMs(750, 770))
     def jumpAtt(self):
         self.getAction().send(client.Key("heroJumpAtt"))
-        time.sleep(0.9)
+        time.sleep(1.1)
     def pushWeaponSkill(self, s):
         self.weaponSkill.append(s)
     def setBurningWeaponSkill(self, s):
@@ -54,20 +53,27 @@ class slayer(user.User):
         x = self.userIndex.getX()
         y = self.userIndex.getY()
         self.useSkill()
-        self.att()
-        if (self.direction == 1):
-            self.fly("Left")
-        else:
-            self.fly("Right")
-        print(self.groupAttTime)
-        if (self.returnTime == self.groupAttTime):
+        print(x)
+        self.jumpAtt()
+        if (x > 180 ):
+            self.move("Left", 50)
+            self.direction = 2
             self.groupAttTime = 1
+        if (x < 40):
+            self.move("Right", 50)
+            self.direction = 1
+            self.groupAttTime = 1
+        if (self.groupAttTime == self.returnTime):
             if (self.direction == 1):
+                self.move("Left", 50)
                 self.direction = 2
             else:
+                self.move("Right", 50)
                 self.direction = 1
+            self.groupAttTime = 1
         else:
             self.groupAttTime = self.groupAttTime + 1
+
         # time.sleep(0.2)
         self.lock.release()
 
